@@ -13,6 +13,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <WrapPanel Orientation="Horizontal " HorizontalAlignment="Center">
             <StackPanel Margin="10" Orientation="Horizontal">
@@ -37,11 +38,11 @@
             <RadioButton Content="По убыванию стоимости " GroupName="Sort" Width="300" FontSize="20" Checked="RButtonDown_Checked" Name="RButtomDown"></RadioButton>
         </StackPanel>
         <Button Content="Добавить" Name="AddButtom" Click="AddButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
-        
+
         <ListView Name="ServiceListView" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Background="{Binding FonStyle}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -53,12 +54,12 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Image Width="100" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center">
+                        <Image Width="200" Grid.Column="0" Grid.RowSpan="4" Stretch="UniformToFill" HorizontalAlignment="Center">
                             <Image.Source>
                                 <Binding Path="MainImagePath">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
-                                            Resources/service_logo.png
+                                            Resources/picture.png
                                         </ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
@@ -66,23 +67,44 @@
                         </Image>
 
                         <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
-                        
-                        <TextBlock Text="{Binding Duration}"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
-                       
-
-                        <TextBlock Text="{Binding Cost, StringFormat={}{0:0} рублей за}"     Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                        <StackPanel Orientation="Horizontal" Grid.Column=" 1" Grid.Row=" 1" >
+                            <TextBlock Text="{ Binding OldCost}" FontSize ="20" TextDecorations="Strikethrough" Margin=" 5"></TextBlock>
+                            <TextBlock Text="{ Binding NewCost}" FontSize ="20" Margin=" 5"></TextBlock>
+                            <TextBlock Text="рублей за " FontSize ="20" Margin=" 5"></TextBlock>
+                            <TextBlock Text="{Binding Duration}"  FontSize="20" Margin=" 5"></TextBlock>
+                            <TextBlock Text=" мин." FontSize ="20" Margin=" 5"></TextBlock>
+                        </StackPanel>
+                    
                         <TextBlock Text="{Binding Discount, StringFormat=*скидка {0} % }" Opacity="{Binding Discount}" Margin="5" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="16"></TextBlock>
 
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                             <Button Name="EditButton" Content="редактировать" Click ="EditButton_Click"  Margin="2"></Button>
-                            <Button Name="DeleteButton" Content="удалить" Margin="2"></Button>
+                            <Button Name="DeleteButton" Content="удалить" Margin="2" Click="DeleteButton_Click"></Button>
+                            <Button Name="SignUpButton" Content="записаться" Margin="2" Click="SignUpButton_Click"></Button>
                         </StackPanel>
-                        
+
+
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-       
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <TextBox Name="TBCount" FontSize="20" Height="25" VerticalContentAlignment="Center" Width="40" TextAlignment="Center"></TextBox>
+            <TextBlock Text=" из " FontSize="20" VerticalAlignment="Center"/>
+            <TextBox Name="TBAllRecords" FontSize="20" Height="25" VerticalContentAlignment="Center" Width="50" TextAlignment="Center"></TextBox>
+            <Button Name="LeftDirButton" Content="&lt;" Width="25" Height="25" Click="LeftDirButton_Click" Margin="10,0,0,0"/>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp" BorderThickness="0" Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirButton" Content="&gt;" Width="25" Height="25" Click="RightDirButton_Click"/>
+        </StackPanel>
+
+
     </Grid>
 </Page>

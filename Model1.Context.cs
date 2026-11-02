@@ -15,11 +15,11 @@ namespace Vasiyatullina_Autoservice
     
     public partial class Васиятуллина_АвтосервисEntities : DbContext
     {
-        
         public Васиятуллина_АвтосервисEntities()
             : base("name=Васиятуллина_АвтосервисEntities")
         {
         }
+
         private static Васиятуллина_АвтосервисEntities _context;
 
         public static Васиятуллина_АвтосервисEntities GetContext()
@@ -28,14 +28,11 @@ namespace Vasiyatullina_Autoservice
                 _context = new Васиятуллина_АвтосервисEntities();
             return _context;
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
-       
-
+    
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<ClientService> ClientService { get; set; }
         public virtual DbSet<DocumentByService> DocumentByService { get; set; }
@@ -46,7 +43,6 @@ namespace Vasiyatullina_Autoservice
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }
 }

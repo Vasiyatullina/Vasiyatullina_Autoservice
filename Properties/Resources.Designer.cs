@@ -63,6 +63,16 @@ namespace Vasiyatullina_Autoservice.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap picture_png {
+            get {
+                object obj = ResourceManager.GetObject("picture.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap service_logo {
             get {
                 object obj = ResourceManager.GetObject("service_logo", resourceCulture);

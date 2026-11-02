@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="30d9e467efee4f47840fbdf4ec04f1b2" Name="Diagram1" ZoomLevel="40">
+      <Diagram DiagramId="f941dd44f5ee44aabd84097dc2c93eb3" Name="Diagram1">
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.Client" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.ClientService" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.DocumentByService" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.ProductSale" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.Service" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.ServicePhoto" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Васиятуллина_АвтосервисModel.Tag" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
         <AssociationConnector Association="Васиятуллина_АвтосервисModel.FK_Client_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="Васиятуллина_АвтосервисModel.FK_ClientService_Client" ManuallyRouted="false" />
